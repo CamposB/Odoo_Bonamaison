@@ -1,0 +1,28 @@
+                        <table style="border-collapse: collapse;                                 text-transform: uppercase;                                 position: absolute;                                 right: 0;">
+                            <tbody>
+                                <tr>
+                                    <td>Subtotal</td>
+                                    <td>
+                                        <span t-esc="doc.amount_undiscounted - doc.l10n_br_delivery_amount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Desconto</td>
+                                    <td>
+                                        <span t-esc="doc.amount_discount" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Frete</td>
+                                    <td>
+                                        <span t-field="doc.l10n_br_delivery_amount"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td>
+                                        <span t-field="doc.amount_total" t-esc="'%.2f' % doc.amount_total" />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
